@@ -19,5 +19,11 @@ router.get("/viewall",async(req,res)=>{
     res.json(data)
 })
 
-
+router.post("/delete",async(req,res)=>{
+    let input=req.body
+    let response=await postModel.deleteOne(input)
+    res.json({
+        status:"success"
+    })
+})
 module.exports=router
