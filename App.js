@@ -3,6 +3,8 @@ const express=require("express")
 const mongoose=require("mongoose")
 const singupRoute=require("./Controllers/SignUp")
 
+const postRouter=require("./Controllers/postRouter")
+
 const app=express()
 
 app.use(express.json())
@@ -13,6 +15,7 @@ mongoose.connect("mongodb+srv://Swathi:Swathi123@cluster0.om2gp.mongodb.net/Blog
 )
 
 app.use("/api/user",singupRoute)
+app.use("/api/post",postRouter)
 
 app.listen(3002,()=>{
     console.log("Server running")
